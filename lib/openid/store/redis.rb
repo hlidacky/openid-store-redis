@@ -88,6 +88,7 @@ module OpenID
       end
 
       def assoc_key(server_url, assoc_handle=nil)
+        Rails.logger.info "openid-store-redis: #{server_url} #{prefix} #{assoc_handle}"
         key = prefix + ':a:' + server_url
         if assoc_handle
           key + ':' + assoc_handle
